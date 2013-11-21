@@ -6,7 +6,41 @@
     <title>PsyEmpathy</title>
     <link rel="stylesheet" href="psyempathy.css">
   </head>
-  <body>    
+  <body>
+    <div id="header">
+      <span>Header</span>
+    </div>
+    
+    <div>
+      <table id="table">
+        <tr>
+          <td id="left-cell" class="side-cell">
+            <div>Left Column</div>
+          </td>
+          
+          <td id="central-cell">
+          <div id="test-block">
+           <div id="quest-text">А вопрос звучит так</div>
+           <div id="radio-block">
+            <input type="radio" value="0">Не знаю<br>
+            <input type="radio" value="1">Нет, никогда<br>
+            <input type="radio" value="2">Иногда<br>
+            <input type="radio" value="3">Часто<br>
+            <input type="radio" value="4">Почти всегда<br>
+            <input type="radio" value="5">Да, всегда<br>            
+           </div>
+           <div id=button-block>
+            <button id="ok-button">Далее</button>
+           </div>
+          </div>
+          </td>
+          
+          <td id="right-cell" class="side-cell">
+            <div>Right Column</div>
+          </td>
+        </tr>    
+      </table>
+    </div>
     <script type="application/dart" src="psyempathy.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>
