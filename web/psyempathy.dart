@@ -1,6 +1,6 @@
 import 'dart:html';
-import 'dart:convert' show JSON;
 import 'dart:async' show Future;
+import 'lib/Quests.dart';
 
 ButtonElement okButton;
 DivElement questBlock;
@@ -14,28 +14,8 @@ void main() {
   
   okButton.onClick.listen(okButton_Click);
   
-  Quests.readyQuests();  
-}
-
-class Quests {
-  static List<String> texts = [];
-  
-  static Future readyQuests() {
-    var path = 'questions.json';
-    return HttpRequest.getString(path).then(_parseQuestFromJSON).then(_prepareControls);
-  }
-  
-  static _parseQuestFromJSON(String jsonString) {
-    Map quests = JSON.decode(jsonString);
-    texts = quests['quests'];
-  }
-  
-  static _prepareControls(dynamic value) {
-    questBlock.text = texts[0];
-    okButton.disabled = false;
-    answerList = [];
-    curAnswerNumber = 0;
-  }
+  Quests.readyQuests();
+  prepareTest();
 }
 
 void okButton_Click(MouseEvent event) {
@@ -53,4 +33,9 @@ void okButton_Click(MouseEvent event) {
   }
   questBlock.text = Quests.texts[curAnswerNumber];
   radio.checked = false;
+}
+
+prepareTest() {
+  answerList = [];
+  curAnswerNumber = 0;
 }
