@@ -1,16 +1,17 @@
 import 'dart:html';
 import 'dart:async' show Future;
 import 'lib/Quests.dart';
+import 'lib/Testing.dart'; 
 
 ButtonElement okButton;
 DivElement questBlock;
-
-List<int> answerList;
 int curAnswerNumber;
+Testing curTest;
 
 void main() {
   okButton = querySelector('#ok-button');
   questBlock = querySelector('#quest-text');
+  curTest = new Testing();
   
   okButton.onClick.listen(okButton_Click);
   
@@ -24,10 +25,11 @@ void okButton_Click(MouseEvent event) {
     window.alert("Не выбран вариант ответа");
     return;
   }
-  answerList.add(int.parse(radio.value));
+  curTest.answers.add(int.parse(radio.value));
   curAnswerNumber++;
   if (curAnswerNumber == Quests.texts.length) {
-    window.alert(answerList.toString());
+    curTest.calcResults();
+    window.alert("Ваша достоверность - ${curTest.honesty}");
     okButton.disabled = true;
     return;
   }
@@ -36,6 +38,5 @@ void okButton_Click(MouseEvent event) {
 }
 
 prepareTest() {
-  answerList = [];
   curAnswerNumber = 0;
 }

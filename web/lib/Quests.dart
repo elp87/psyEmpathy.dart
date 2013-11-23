@@ -1,3 +1,5 @@
+library psyempathy.Quests;
+
 import 'dart:html';
 import 'dart:convert' show JSON;
 import 'dart:async' show Future;
