@@ -8,8 +8,8 @@ class Quests {
   static List<String> texts = [];
   
   static Future readyQuests() {
-    var path = 'lib/questions.json';
-    var answer =  HttpRequest.getString(path).then(_parseQuestFromJSON).then(_prepareControls);    
+    var path = 'json/questions.json';
+    HttpRequest.getString(path).then(_parseQuestFromJSON).then(_prepareControls);    
   }
   
   static _parseQuestFromJSON(String jsonString) {
