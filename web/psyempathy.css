@@ -62,3 +62,25 @@ input[type="radio"] {
   height: 2em;
   font-weight: bold;
 }
+
+/* For results */
+#honesty-block {
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.5em;
+  
+}
+
+#testResult-short {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 25px;
+  line-height: 2em;  
+}
+
+#testResult-long {
+  text-align: justify;
+  margin: 15px 5px 0px;
+  font-size: 16px;
+}
